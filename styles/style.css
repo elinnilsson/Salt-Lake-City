@@ -1,0 +1,285 @@
+/*Det mest generella för sidan, som font på texten och bakgrundsbild */
+html, body {
+    background-image: url(../images/body-pattern.jpeg);
+    font-family: 'Open Sans', helvetica, sans-serif;
+    font-size: 14px;
+    color: #1f1f1f;
+    margin:0;
+}
+/*Höjden som headern ska ta */
+header{
+    height: 200px;
+}
+    figure.header{
+        margin: 0; 
+    }
+    img.header{
+        width: 100%;
+        min-width: 921px;
+    }
+    /*"Djupvik" texten. Både text och bakgrund är till hälften genomskinliga
+    top och position gör att texten hamnar uppe på bilden istället för under.*/    
+    figcaption.header{
+        background-color: #ffffff;
+        opacity: 0.5;
+        padding-right: 23px;
+        top: 32px;
+        position: absolute;
+        width: 350px;
+        text-align: right;
+        font: 25px 'Fjalla One', helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+/*Ser till att tex nav och footer är lika långa som själva sidan och itne slutar tidigare. */
+nav, section, article, footer, aside{
+    box-sizing: border-box;
+    width: 100%;
+    float: left;
+    background-color: #ffffff;
+    text-align: center;
+    margin: 0;
+}
+
+/*Navigeringen är egentligen en oordnad lista */
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+    /*Så att länkarna kan hamna brevid varandra */
+    nav li{
+        display: inline;
+    }
+        /*Tar bort default understrykning av länkar, jag lägger istället på hover senare så att man ser att de är klickbara. */
+        nav a{
+            text-align: center;
+            text-decoration: none;
+            padding: 2px 0;
+            display: inline-block;
+            position: relative;
+            width: 150px;
+        }
+        /*Markering av vilken sida man är på för tillfället. 
+        Lägger till en border under själva elementet, som bara täcker halva länken. */
+        nav a#thispage:after{
+            content: '';
+            position: absolute;
+            width: 50%;
+            left: 25%;
+            bottom: 0px;
+            border-bottom: 2px #cdc9c5 solid;
+        }
+        nav a:hover{
+            background: #cdc9c5;
+        }
+        /*Medan man klickar blir texten vit för att man ska märka att det hände något. */
+        nav a:active{
+            color: white;
+        }
+
+/*Jag vill inte att de länkar man har klickat på ska vara lila. */
+a:link, a:visited{
+    color: #1f1f1f;
+}
+
+/*Fixar så att det alltid är lagom mycket mellanrum över på sidorna av allt innehåll.*/
+#content{
+    width: 85%;
+    min-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*Lägger t.ex. till ett mellanrum mellan de olika kolumnerna, vilket är uträknat att matcha med hur breda 
+kolumnerna (längst ner i detta dokument) är i procent för att allt fortfarande ska vara i mitten. 
+Ser också till att sidan alltid sträcker sig nästan ända ner, även om innehållet inte tar upp
+så mycket plats av sig självt.*/
+section, aside{
+    margin: 20px 0.6% 65px;
+    border-top: 3px #8EB2D4 solid;
+    border-right: 1px #cdc9c5 solid;
+    border-bottom: 1px #cdc9c5 solid;
+    border-left: 1px #cdc9c5 solid;
+    padding: 10px 10px;
+    height: 100%; 
+    min-height: 650px;
+}
+    aside img{
+        padding: 5px 0 0;
+    }
+    /*Detta gäller den engelska sidan, där section och aside ska byta plats. 
+    Jag vill ha kvar huvudinnehållet högst upp i min html och göra såhär med css 
+    för att byta plats på dem.*/
+    section.right{
+        float: right;
+    }
+
+/*Jag använde endast Fjalla One på rubrikerna eftersom jag tyckte att texten blev så svår att läsa annars.
+De andra fonterna här är till för att finnas som backup ifall webbläsaren inte skulle förstå vad Fjalla One är.*/
+h1{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    font-family: 'Fjalla One', helvetica, sans-serif;
+    margin: 8px 0;
+}
+h2{
+    font-size: 21px;
+    font-weight: bold;
+    text-align: left;
+    font-family: 'Fjalla One', helvetica, sans-serif;
+    margin: 20px 0 10px;
+}
+    /*Vid nyheterna tyckte jag att det blev för mycket mellanrum t.ex då det kom en h2 direkt under en h1. */
+    h2.less-margin{
+        margin: 5px 0;
+    }
+
+p{
+    text-align: left;
+    margin: 10px 0 10px;
+}
+    .centered-text{
+        text-align: center;
+    }
+    /*Just datumen vid nyheterna är mindre än övrig text */
+    p.date{
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+/*Med justify distribueras texten så att den täcker upp en hel rad så bra som möjligt, 
+men fortfarande är vänsterjusterad och inte centrerad. Detta för att det ska se snyggare ut. */
+article{
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+    /*Den lilla bildens placering ska likna designspecifikationen så mycket som möjligt. */
+    article p img.left{ 
+        float: left;
+        margin: 3px 20px 50px 0;
+    }
+    /*Placering av den tonade linjen mellan två artiklar. */
+    article.gradient-line{
+        margin: 0 0 20px;
+    }
+
+/*Originalfärgen på linjen är grå, sen läggs det på en vit skugga från båda sidorna
+som är helt vit längst ut i kanterna, och döljer det gråa, och sen tonas ut in mot mitten. */
+span.gradient-line{
+    display: block;
+    margin: 20px 0 5px;
+    height: 2px;
+    background: #cdc9c5;
+    box-shadow: inset 100px 0px 100px -50px #fff, 
+                inset -100px 0px 100px -50px #fff;
+}
+
+/*Kantlinje över och under citeringen. */
+blockquote{
+    border-top: 1px #cdc9c5 solid;
+    border-bottom: 1px #cdc9c5 solid;
+    margin: 20px 10px 0px;
+    padding: 5px 10px;
+}
+    /*Precis före och efter själva blockquoten lägger jag till ett element som bara innehåller ett citattecken. */
+    blockquote p:before, blockquote p:after{
+        content: '"';
+    }
+    blockquote p, figcaption, .italic{
+        font-style: italic;
+    }
+
+/* För att bilderna på infosidan ska kunna hamna brevid varandra. */
+div.info-pic{
+    display: inline-block;
+}
+    /*Vertical align:top för att se till att överkanten av bilderna ligger på samma linje. 
+    Texten under får istället vara ojämn eftersom den är olika lång. */
+    figure.info-pic{
+        display: inline-block;
+        width: 183px;
+        margin: 30px 50px 10px;
+        padding: 0;
+        vertical-align: top;
+    }
+
+/*Gör så att det bara blir en enda kant mellan två rutor, istället för en från varje ruta med mellanrum. */
+table{
+    border-collapse: collapse;
+    text-align: left;
+    display: inline-block;
+    width: 460px;
+}
+    /*Här vill jag att tabellen ska hamna till vänster (block) istället för i mitten av sidan, eftersom rubriken är där. */
+    table#members{
+        width: 700px;
+        margin-top: 30px;
+        display: block;
+    } 
+    th{
+        height: 40px;
+        text-align: center;
+        border: 1px #cdc9c5 solid;
+        width: 230px;
+    }
+    th, td{
+        border: 1px #cdc9c5 solid;
+        padding: 5px;
+        height: 25px;
+    }
+
+/*Gör det lite luftigare runt tabellen som förklarar smeknamn. */
+div.nicknames{
+    margin: 50px 0;
+}
+
+form{
+    margin-top: 20px;
+}
+    form p{
+        padding-bottom: 10px;
+    }
+    form br{
+        line-height: 20px;
+    }
+
+/*Gör så att footern alltid hänger med (fixed), så att man alltid kan hitta mailadressen som står där.
+Den ska också alltid vara allra längst ner på sidan (bottom). */
+footer{
+    position: fixed;
+    bottom: 0;
+    border-top: 2px #cdc9c5 solid;
+}
+    footer p{
+        text-align: center;
+    }
+/*När jag betonar ord i en paragraf ska det visas med snedstil.*/
+p em{
+    font-style: italic;
+}
+
+/*Rutmönster. Det är beräknat på detta vis för att en marginal på 0.6% också ska få plats. 
+Det går nog att göra på ett bättre sätt, men jag har försökt på många olika och nu ser det i falla fall fint ut
+och funkar som det ska, det är bara siffrorna som ser fula ut här i filen.*/
+.col-1 {
+  width: 24.4%;
+}
+
+.col-2 {
+  width: 48.8%;
+}
+
+.col-3 {
+  width: 73.2%;
+}
+
+.col-4 {
+  width: 97.6%;
+}
+
+.make-room-for-margin{
+    width: 90%
+}
