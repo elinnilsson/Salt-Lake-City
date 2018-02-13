@@ -1,7 +1,7 @@
 /*Det mest generella för sidan, som font på texten och bakgrundsbild */
 html, body {
     background-image: url(../images/body-pattern.jpeg);
-    font-family: 'Open Sans', helvetica, sans-serif;
+    font-family: helvetica, sans-serif;
     font-size: 14px;
     color: #1f1f1f;
     margin:0;
@@ -101,7 +101,7 @@ section, aside{
     border-right: 1px #cdc9c5 solid;
     border-bottom: 1px #cdc9c5 solid;
     border-left: 1px #cdc9c5 solid;
-    padding: 10px 10px;
+    padding: 20px 20px;
     height: 100%; 
     min-height: 650px;
 }
@@ -121,14 +121,14 @@ h1{
     font-size: 28px;
     font-weight: bold;
     text-align: left;
-    font-family: 'Fjalla One', helvetica, sans-serif;
+    font-family: helvetica, sans-serif;
     margin: 8px 0;
 }
 h2{
     font-size: 21px;
     font-weight: bold;
     text-align: left;
-    font-family: 'Fjalla One', helvetica, sans-serif;
+    font-family: helvetica, sans-serif;
     margin: 20px 0 10px;
 }
     /*Vid nyheterna tyckte jag att det blev för mycket mellanrum t.ex då det kom en h2 direkt under en h1. */
@@ -165,6 +165,41 @@ article{
     article.gradient-line{
         margin: 0 0 20px;
     }
+.color-explanation{
+    display: block;
+    margin-bottom: 10px;
+    float: left;
+    margin-left: 120px;
+}
+.first-color{
+    margin-top: 20px;
+}
+    .foo {
+        display: inline-block;
+        min-width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        margin-bottom: -5px;
+        border: 1px solid rgba(0, 0, 0, .2);
+    }
+        .gray {
+            background: #94A2BE;
+        }
+        .blue {
+            background: #3640AD;
+        }
+        .red {
+            background: #AD2D2D;
+        }
+
+iframe{
+    border-width: 0;
+    width: 800px;
+    height: 600px;
+    frameborder: 0;
+    scrolling: no;
+    margin-top: 20px;
+}
 
 /*Originalfärgen på linjen är grå, sen läggs det på en vit skugga från båda sidorna
 som är helt vit längst ut i kanterna, och döljer det gråa, och sen tonas ut in mot mitten. */
@@ -214,11 +249,17 @@ table{
     width: 460px;
 }
     /*Här vill jag att tabellen ska hamna till vänster (block) istället för i mitten av sidan, eftersom rubriken är där. */
-    table#members{
-        width: 700px;
-        margin-top: 30px;
+    table#temp{
+        width: 95%;
         display: block;
-    } 
+    }
+    caption{
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: 21px;
+        font-weight: bold;
+        font-family: helvetica, sans-serif;
+    }
     th{
         height: 40px;
         text-align: center;
@@ -246,16 +287,6 @@ form{
         line-height: 20px;
     }
 
-/*Gör så att footern alltid hänger med (fixed), så att man alltid kan hitta mailadressen som står där.
-Den ska också alltid vara allra längst ner på sidan (bottom). */
-footer{
-    position: fixed;
-    bottom: 0;
-    border-top: 2px #cdc9c5 solid;
-}
-    footer p{
-        text-align: center;
-    }
 /*När jag betonar ord i en paragraf ska det visas med snedstil.*/
 p em{
     font-style: italic;
